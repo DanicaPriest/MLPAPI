@@ -6,6 +6,8 @@ import MLP.service.MLPService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/mlp")
 public class MLPController {
@@ -22,9 +24,15 @@ public class MLPController {
         return mlpService.getRandom();
     }
 
+    @RequestMapping("/email")
+    public String email() throws IOException {
+        mlpService.email();
+        return "Email sent";
+    }
+
     //PUT
     @RequestMapping("/")
-    public String loadMLP(@RequestParam(value="ldb", defaultValue="10") String resultNum) {
+    public String loadMLP(@RequestParam(value="ldb", defaultValue="50") String resultNum) {
         mlpService.loadMLP(resultNum);
         return "your database has loaded with " + resultNum + " new Ponies";
     }

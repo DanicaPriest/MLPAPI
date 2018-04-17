@@ -10,7 +10,7 @@ public interface MLPMapper {
             "VALUES (#{created_at}, #{tags}, #{uploader}, #{image}, #{width}, #{height})";
     String GET_BY_ID = "SELECT * FROM `mybatis-test`.mlp where id = #{id}";
     String MAKE_ACTIVE = "UPDATE `mybatis-test`.mlp SET isActive = 1 WHERE id = #{id}";
-    String DELETE_MLP = "UPDATE `mybatis-test`.mlp  SET isActive = 0 WHERE id = #{id}";
+    String DELETE_MLP = "DELETE FROM `mybatis-test`.mlp  WHERE id = #{id}";
 
 
     @Insert(INSERT_MLP)
