@@ -1,6 +1,6 @@
 package MLP.mapper;
 
-import mybatis.model.MLP.MLPOverview;
+import MLP.model.MLPOverview;
 import org.apache.ibatis.annotations.*;
 
 @Mapper

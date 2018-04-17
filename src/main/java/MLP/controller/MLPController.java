@@ -1,8 +1,8 @@
 package MLP.controller;
 
-import mybatis.model.MLP.MLPOverview;
-import mybatis.model.MLP.MLPRoot;
-import mybatis.services.MLPService;
+import MLP.model.MLPOverview;
+import MLP.model.MLPRoot;
+import MLP.service.MLPService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,8 +39,8 @@ public class MLPController {
     //Read
     //searches for a query then returns the results
     @RequestMapping("/search")
-    public MLPRoot searchMLP(@RequestParam(value="q", defaultValue="pony") String query) {
-        return mlpService.searchMLP(query);
+    public MLPRoot searchMLP() {
+        return mlpService.searchMLP();
     }
 
     //Update

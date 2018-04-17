@@ -1,9 +1,9 @@
 package MLP.service;
 
 
-import mybatis.mappers.MLPMapper;
-import mybatis.model.MLP.MLPOverview;
-import mybatis.model.MLP.MLPRoot;
+import MLP.mapper.MLPMapper;
+import MLP.model.MLPOverview;
+import MLP.model.MLPRoot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -19,8 +19,8 @@ public class MLPService {
     MLPMapper mlpMapper;
 
     //Search images and return all info
-    public MLPRoot searchMLP(String query) {
-        String url = "https://derpibooru.org/search.json?q=" + query;
+    public MLPRoot searchMLP() {
+        String url = "https://derpibooru.org/search.json?q=safe";
 
         MLPRoot search = restTemplate.getForObject(url, MLPRoot.class);
 
@@ -29,10 +29,10 @@ public class MLPService {
 
     //get a random image with overview of info
     public MLPOverview getRandom() {
-        int max = searchMLP("pony").getTotal();
+        int max = searchMLP().getTotal();
         int rNum = (int) (Math.random() * (max - 1)) + 1;
 
-        String url = "https://derpibooru.org/images/" + rNum + ".json";
+        String url = "https://derpibooru.org/images/" + rNum + ".json?q=safe";
 
         MLPOverview random = restTemplate.getForObject(url, MLPOverview.class);
 
