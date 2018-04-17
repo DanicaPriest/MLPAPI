@@ -91,7 +91,7 @@ public class MLPService {
 
         // Replace recipient@example.com with a "To" address. If your account
         // is still in the sandbox, this address must be verified.
-        final String TO = "danicamaypriest@hotmail.co.uk";
+        final String TO = "danicamaypriest@hotmail.co.uk ";
 
         // The configuration set to use for this email. If you do not want to use a
         // configuration set, comment the following variable and the
